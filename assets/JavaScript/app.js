@@ -1,3 +1,5 @@
+window.onload = function () {
+
 var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=ssisEaruVrcF1igPEGOT1LEyzqZkCvKZ";
 
     $.ajax({
@@ -7,3 +9,5 @@ var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=ssisEaruVrcF1igPE
       console.log(response);
     });
 
+
+  };
