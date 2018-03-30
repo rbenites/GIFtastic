@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function(){
 
   var topics = ["StarWars", "Dogs", "X-Men", "BatMan", "SuperMan", "Avengers", "Spider-Man", "Wolverine", "video Games"];
   var $bt = $('<input/>').attr({ type: 'button' });
@@ -49,5 +49,5 @@ window.onload = function () {
         $("#gifs-appear-here").prepend(gifDiv);
       }
     });
-};
+});
 
