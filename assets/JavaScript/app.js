@@ -2,12 +2,11 @@
 window.onload = function () {
     //1. Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
     //    * We chose animals for our theme, but you can make a list to your own liking.
-    var topics = ["Collie"/*, "German Shepherd", "Bernese Mountain Dog", "Australian Shepherd", "Golden Retriever", "Siberian Husky", "Border Collie"*/];
+    var topics = ["Collie", "German Shepherd", "Bernese Mountain Dog", "Australian Shepherd", "Golden Retriever", "Siberian Husky", "Border Collie"];
     var resultNum = 1;
 
     // 2. Your app should take the topics in this array and create buttons in your HTML.
     // * Try using a loop that appends a button for each string in the array.
-
     function createTopicBtns() {
         $("#dogBtns").empty();
         var topicBtns = $("#dogBtns");
@@ -15,7 +14,7 @@ window.onload = function () {
             var newTopicBtns = $("<button>" + topics[i] + "</buttons>");
             newTopicBtns.attr({
                 "type": "button",
-                "class": "dog_btn btn-outline-secondary active m-2",
+                "class": "dog_btn btn btn-outline-secondary m-2",
                 "data-name": topics[i],
                 "text": topics[i]
             });
@@ -78,6 +77,7 @@ window.onload = function () {
     /*When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
     */
     $(".gif").on("click", function () {
+        alert("Ive been clicked");
         var state = $(this).attr("data-state");
         var animate = $(this).attr("data-animate");
         var still = $(this).attr("data-still");
