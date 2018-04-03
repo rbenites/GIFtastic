@@ -8,8 +8,8 @@ window.onload = function () {
     // 2. Your app should take the topics in this array and create buttons in your HTML.
     // * Try using a loop that appends a button for each string in the array.
 
-    function createTopicBtns() {   
-        $("#dogBtns").empty();    
+    function createTopicBtns() {
+        $("#dogBtns").empty();
         var topicBtns = $("#dogBtns");
         for (i = 0; i < topics.length; i++) {
             var newTopicBtns = $("<button>" + topics[i] + "</buttons>");
@@ -19,8 +19,8 @@ window.onload = function () {
                 "data-name": topics[i],
                 "text": topics[i]
             });
-            console.log(newTopicBtns);
-            console.log(topicBtns);
+            // console.log(newTopicBtns);
+            //console.log(topicBtns);
             topicBtns.append(newTopicBtns);
         }
     }
@@ -38,16 +38,17 @@ window.onload = function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
-
+            //console.log(response);
+            
+            //save reponse data in results var
             var results = response.data;
             for (i = 0; i < resultNum; i++) {
                 var newDogDiv = $("<div>");
                 /*Under every gif, display its rating (PG, G, so on).*/
-               var rating = $("<p>").text("Rating: " + results[i].rating).addClass("my-0");
+                var rating = $("<p>").text("Rating: " + results[i].rating).addClass("my-0");
+                //this is for the attributes of each image. This will set the image to static and hold data to animate
                 dogImage = $("<img>").attr({
                     "src": results[i].images.fixed_height_still.url,
-                    "type":"button",
                     "data-still": results[i].images.fixed_height_still.url,
                     "data-animate": results[i].images.fixed_height.url,
                     "data-state": "still",
@@ -58,6 +59,8 @@ window.onload = function () {
                 newDogDiv.append(rating);
                 $("#dogGifs").append(newDogDiv);
             }
+            //console.log(dogImage);
+            //console.log (results);
         });
 
     }
@@ -75,23 +78,23 @@ window.onload = function () {
     /*When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
     */
     $(".gif").on("click", function () {
-        var status = $(this).attr("data-state");
+        var state = $(this).attr("data-state");
         var animate = $(this).attr("data-animate");
         var still = $(this).attr("data-still");
+
         if (state === "still") {
             $(this).attr({
                 "src": "animate",
                 "data-state": "animate"
             });
-            console.log(state);
+            console.log("This is the state: " + state);
         } else {
             $(this).attr({
                 "src": "still",
                 "data-state": "still"
             });
-            console.log(state);
+            console.log("This is the state: " + state);
         }
-
     });
 
     createTopicBtns();
