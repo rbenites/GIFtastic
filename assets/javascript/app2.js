@@ -11,10 +11,12 @@ window.onload = function () {
     var topics = ["Collie", "German Shepherd", "Bernese Mountain Dog", "Australian Shepherd", "Golden Retriever", "Siberian Husky", "Border Collie"];
     
     var topicBtns = $("#dogBtns");
+    
     //for loop to create the topic buttons from the topics array
     for (var i = 0; i < topics.length; i++) {
         var topicButton = $('<button>');
         topicButton.attr('data-name', topics[i]);
+        topicButton.attr('class',"btn btn-outline-secondary m-2");
         topicButton.text(topics[i]);
         topicBtns.append(topicButton);
         console.log(topicButton);
@@ -22,10 +24,8 @@ window.onload = function () {
     
     $("#SearchField").on('submit', function () {
         event.preventDefault();
-
         var dog = $('#dogSearchField').val().trim();
         topics.push(dog);
-
         var topicButton = $('<button>');
         topicButton.attr({
             'data-name': topics[topics.length - 1],
