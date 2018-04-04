@@ -3,14 +3,14 @@ window.onload = function () {
     //1. Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
     //    * We chose animals for our theme, but you can make a list to your own liking.
     var topics = ["Collie", "German Shepherd", "Bernese Mountain Dog", "Australian Shepherd", "Golden Retriever", "Siberian Husky", "Border Collie"];
-    var resultNum = 9;
+    var resultNum = 1;
 
     // 2. Your app should take the topics in this array and create buttons in your HTML.
     // * Try using a loop that appends a button for each string in the array.
     function createTopicBtns() {
         $("#dogBtns").empty();
         var topicBtns = $("#dogBtns");
-        for (i = 0; i < topics.length; i++) {
+        for (var i = 0; i < topics.length; i++) {
             var newTopicBtns = $("<button>" + topics[i] + "</buttons>");
             newTopicBtns.attr({
                 "type": "button",
